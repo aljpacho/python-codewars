@@ -55,8 +55,15 @@ def find_it(seq):
     # Find the first element with odd frequency using a generator expression
     return next(num for num, count in frequency.items() if count % 2 != 0)
 
-# Best practice from discussion using .count method
+# Best practice solution from discussion using .count method
 def find_it(seq):
     for i in seq:
         if seq.count(i)%2!=0:
             return i
+
+# Clever solution from discussion using the Operator library
+from functools import reduce
+import operator
+
+def find_it(xs):
+    return reduce(operator.xor, xs)

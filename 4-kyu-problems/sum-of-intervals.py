@@ -14,3 +14,31 @@ List containing overlapping intervals:
 ]
 The sum of the lengths of these intervals is 7. Since [1, 4] and [3, 5] overlap, we can treat the interval as [1, 5], which has a length of 4.
 """
+
+def sum_of_intervals(intervals):
+    # Sort the intervals by start time
+    intervals.sort(key=lambda x: x[0])
+    
+    # Initialize the result with the first interval
+    result = intervals[0][1] - intervals[0][0]
+    
+    # Initialize a set for processed intervals (duplicates)
+    processed_intervals = {intervals[0]}
+    
+    # Iterate through the intervals and update the result
+    for i in range(1, len(intervals)):
+        # Check if the current interval overlaps with the previous interval
+        if intervals[i][0] < intervals[i-1][1]:
+            # Check if the current interval has been processed before
+            if intervals[i] in processed_intervals:
+                continue
+            # Calculate the overlap length
+            overlap = min(intervals[i][1], intervals[i-1][1]) - max(intervals[i][0], intervals[i-1][0])
+            # Update the result with the overlap length
+            result += overlap
+        else:
+            # If the intervals do not overlap, update the result with the current interval
+            result += intervals[i][1] - intervals[i][0]
+            processed_intervals.add(intervals[i])
+    
+    return result

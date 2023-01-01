@@ -9,3 +9,15 @@ You have to write a function printer_error which given a string will return the 
 
 The string has a length greater or equal to one and contains only letters from ato z.
 """
+
+def printer_error(s):
+    denominator = len(s)
+    
+    numerator = 0
+    
+    for character in s:
+        if character.upper() not in 'ABCDEFGHIJKLM':
+            numerator += 1
+    
+    return f'{numerator}/{denominator}'
+

@@ -28,3 +28,20 @@ def find_it(seq):
             if count % 2 != 0:
                 return num
 
+# Second iteration
+def find_it(seq):
+    # Create a dictionary to store the frequency of each element in the sequence
+    frequency = {}
+    
+    # Iterate through the sequence and count the frequency of each element
+    for num in seq:
+        if num not in frequency:
+            frequency[num] = 1
+        else:
+            frequency[num] += 1
+    
+    # Iterate through the dictionary and return the first element with odd frequency
+    for num, count in frequency.items():
+        if count % 2 != 0:
+            return num
+

@@ -21,3 +21,13 @@ def printer_error(s):
     
     return f'{numerator}/{denominator}'
 
+# Second iteration
+def printer_error(s: str) -> str:
+    # Calculate the total number of characters in the string
+    total_chars = len(s)
+    
+    # Count the number of characters that are not in the range A-M
+    error_chars = sum(1 for ch in s if ch.upper() not in 'ABCDEFGHIJKLM')
+    
+    # Return the error rate as a string
+    return f'{error_chars}/{total_chars}'

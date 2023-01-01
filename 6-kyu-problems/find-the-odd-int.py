@@ -45,3 +45,18 @@ def find_it(seq):
         if count % 2 != 0:
             return num
 
+# Third iteration using collections
+from collections import Counter
+
+def find_it(seq):
+    # Create a Counter object to count the frequency of each element in the sequence
+    frequency = Counter(seq)
+    
+    # Find the first element with odd frequency using a generator expression
+    return next(num for num, count in frequency.items() if count % 2 != 0)
+
+# Best practice from discussion using .count method
+def find_it(seq):
+    for i in seq:
+        if seq.count(i)%2!=0:
+            return i

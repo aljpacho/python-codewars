@@ -10,3 +10,21 @@ Examples
 [0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
 [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
 """
+
+def find_it(seq):
+
+    if len(seq) == 1:
+        return seq[0]
+    else:
+        sequence_dict = {}
+        
+        for num in seq:
+            if num not in sequence_dict:
+                sequence_dict[num] = 1
+            else:
+                sequence_dict[num] += 1
+        
+        for num, count in sequence_dict.items():
+            if count % 2 != 0:
+                return num
+

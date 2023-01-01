@@ -6,7 +6,7 @@ Note: Your answer should always be 6 characters long, the shorthand with 3 will 
 The following are examples of expected output values:
 """
 
-def rgb(r, g, b):
+def rgb(r: int, g:int, b:int) -> str:
     # Clamp values to range 0-255
     r = min(max(r, 0), 255)
     g = min(max(g, 0), 255)

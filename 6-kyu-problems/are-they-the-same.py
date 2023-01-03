@@ -35,3 +35,28 @@ def comp(array1, array2):
             return False
     
     return True
+
+# Second attempt 
+from collections import Counter
+
+def comp(array1: list, array2: list) -> bool:
+    # Return False if either array is None or empty
+    if array1 is None or array2 is None:
+        return False
+    # Return False if one array is empty and the other is not
+    elif not array1 and array2 or array1 and not array2:
+        return False
+    # Return True if both arrays are empty
+    elif not array1 and not array2:
+        return True
+    
+    # Create frequency dict for both arrays
+    freq1 = Counter(array1)
+    freq2 = Counter(array2)
+
+    # Check if all elements in array1 are present in array2
+    for key, value in freq1.items():
+        if key**2 not in freq2 or freq2[key**2] != value:
+            return False
+    
+    return True

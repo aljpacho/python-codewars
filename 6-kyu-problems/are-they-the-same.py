@@ -20,3 +20,18 @@ a = [121, 144, 19, 161, 19, 144, 19, 11]
 b = [121, 14641, 20736, 36100, 25921, 361, 20736, 361]
 comp(a,b) returns false because in b 36100 is not the square of any number of a.
 """
+
+# First attempt 
+def comp(array1, array2):
+    multiplicity_dict = {num: num*num for num in array1}
+    
+    print(array1, array2, sep="\n")
+    
+    if type(array1) != type(array2): 
+        return False
+    
+    for num in array2: 
+        if num not in multiplicity_dict.values():
+            return False
+    
+    return True

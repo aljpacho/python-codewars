@@ -17,3 +17,9 @@ def to_weird_case(words):
     
     weird_string = ' '.join(weird_words)
     return weird_string
+
+    # Refactored with list comp
+def to_weird_case(words: str) -> str:
+    words_list = words.split()
+    weird_words = [''.join([char.upper() if i % 2 == 0 else char.lower() for i, char in enumerate(word)]) for word in words_list]
+    return ' '.join(weird_words)

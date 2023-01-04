@@ -31,3 +31,8 @@ def to_weird_case_word(string):
     
 def to_weird_case(string):
     return " ".join(to_weird_case_word(str) for str in string.split())
+
+# Clever from discussion
+def to_weird_case(string):
+    recase = lambda s: "".join([c.upper() if i % 2 == 0 else c.lower() for i, c in enumerate(s)])
+    return " ".join([recase(word) for word in string.split(" ")])

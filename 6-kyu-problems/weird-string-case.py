@@ -23,3 +23,11 @@ def to_weird_case(words: str) -> str:
     words_list = words.split()
     weird_words = [''.join([char.upper() if i % 2 == 0 else char.lower() for i, char in enumerate(word)]) for word in words_list]
     return ' '.join(weird_words)
+
+
+# Best practice from discussion
+def to_weird_case_word(string):
+    return "".join(c.upper() if i%2 == 0 else c for i, c in enumerate(string.lower()))
+    
+def to_weird_case(string):
+    return " ".join(to_weird_case_word(str) for str in string.split())

@@ -30,3 +30,9 @@ def permutations(string: str) -> set:
     
     # Return the list of permutations as a set to remove duplicates
     return set(perms)
+
+# Best practice from discussion
+import itertools
+
+def permutations(string):
+    return list("".join(p) for p in set(itertools.permutations(string)))

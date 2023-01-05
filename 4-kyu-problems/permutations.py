@@ -36,3 +36,7 @@ import itertools
 
 def permutations(string):
     return list("".join(p) for p in set(itertools.permutations(string)))
+
+# Clever from discussion
+from itertools import permutations as pm
+permutations=lambda s: map(''.join, set(pm(s)))
